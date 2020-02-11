@@ -9,6 +9,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 //import MenuIcon from '@material-ui/icons/Menu';
 import Home from "../home/Home"
 import About from "../about/About";
+import Login from "../login/Login";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -28,23 +29,20 @@ const App = (props) => {
 
   return (
     <>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-          {State.name}
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            News
-    </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
+
 
       <Switch>
       <Route
           path='/about'
           render={() => (
             <About/>
+          )}
+        />
+
+        <Route
+          path='/login'
+          render={() => (
+            <Login/>
           )}
         />
 
