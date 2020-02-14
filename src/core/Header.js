@@ -11,9 +11,9 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 //import Menu from './Menu';
 
-// Import here all the required components used by the router such as SignIn, Register, ...
 
-const logo = require('../assets/logo.png');
+
+const logo = require('../../Logo.png');
 
 const useStyles = makeStyles(theme => ({
     root: {
