@@ -13,7 +13,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 
 
-const logo = require('../../Logo.png');
+const logo = require('../Logo.png');
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
       },
       menuButton: {
         marginRight: theme.spacing(2),
-      },
+      }, 
       title: {
         flexGrow: 1,
       },
