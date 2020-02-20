@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Footer from "../core/footer/Footer";
 
 const Home = (props) => {
     return (
@@ -7,6 +7,8 @@ const Home = (props) => {
             <div>
                 Home
             </div>
+          <Footer>
+          </Footer>
         </>
     )
 }
