@@ -32,6 +32,15 @@ const useStyles = makeStyles(theme => ({
     overflow: 'hidden',
     width: '100%',
   },
+  dots :{
+    position:'relative',
+    top: -40,
+    background: 'transparent',
+    '& .MuiMobileStepper-dots' :{
+      width:35,
+      margin:'auto'
+    }
+  }
 }));
 
 const ImageCarousel = (props) =>{
@@ -65,6 +74,7 @@ const ImageCarousel = (props) =>{
         position="static"
         variant="dots"
         activeStep={activeStep}
+        className={classes.dots}
       />
     </div>
   );

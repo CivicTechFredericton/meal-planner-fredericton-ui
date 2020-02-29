@@ -18,7 +18,8 @@ const useStyles = makeStyles (theme => ({
     '& a' : {
       color: 'white',
       fontSize: 14,
-      fontFamily: 'Open Sans'
+      fontFamily: 'Open Sans',
+      padding:0
     },
     '& h2': {
       fontSize: 18,
@@ -167,6 +168,7 @@ const Footer = (props) => {
       </Grid>
     )
   };
+
   const inColumn = (links) => {
     console.log("Seperate2", links);
     return(
@@ -181,6 +183,7 @@ const Footer = (props) => {
       </div>
     )
   };
+
   return (
     <Grid className={styles.footerContainer}>
       <Grid item className={styles.footerInnerContainer}
