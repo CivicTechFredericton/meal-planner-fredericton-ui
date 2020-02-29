@@ -1,13 +1,9 @@
-// import i18next from 'i18next';
-// import i18nextXHRBackend from 'i18next-xhr-backend';
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import Backend from 'i18next-xhr-backend';
+import XHR from 'i18next-xhr-backend';
+import Backend from 'i18next-chained-backend';
+import LocalStorageBackend from 'i18next-localstorage-backend';
 
-// this registers all files in the translations folder
-// and make them available in the build. this does NOT
-// actually import files, just a reference to the path
-require.context('../../../public/translations/', true, /\.json/);
 
 export const getCurrentLanguage = () => {
   return i18n.language;
@@ -15,6 +11,13 @@ export const getCurrentLanguage = () => {
 
 export const changeLanguage = nextLang => {
   return i18n.changeLanguage(nextLang);
+};
+
+const detectorOptions = {
+  order: [],
+  lookupFromPathIndex: 0,
+  // cache user language on
+  caches: ['localStorage']
 };
 
 /**
@@ -37,8 +40,21 @@ i18n
     whitelist: ['en'],
     ns: 'common',
     backend: {
-      loadPath: '../translations/{{lng}}/{{ns}}.json',
-      addPath: '../translations/{{lng}}/{{ns}}.json',
+      backends: [
+        LocalStorageBackend, //primary
+        XHR // fallback
+      ],
+      backendOptions: [
+        {
+          prefix: 'i18next_res_',
+          expirationTime: 1 * 24 * 60 * 60 * 1000,
+          defaultVersion: '',
+          versions: { en: 'v1.0', fr: 'v1.0' },
+          store: window.localStorage
+
+        },
+        { loadPath: '../translations/{{lng}}/{{ns}}.json' }
+      ],
     },
     react: {
       // **** BROWSER WARNING *******
@@ -55,11 +71,10 @@ i18n
     // the browser warning disappears. However, the browser
     // shows translation missing before it initialises
     // initImmediate: !(process && !process.release),
+    interpolations: {
+      escapeValue: false,
+    }
 
-    cache: {
-      enabled: true,
-      expirationTime: 24 * 60 * 60 * 1000,
-    },
   });
 
 export default i18n;
