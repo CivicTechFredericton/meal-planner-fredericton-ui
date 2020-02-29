@@ -24,6 +24,7 @@ const theme = createMuiTheme({
         },
         typography: {
             useNextVariants: true,
+            fontFamily: 'Open Sans',           
         },
         text: {
             primary: '#0175ad',
@@ -32,15 +33,18 @@ const theme = createMuiTheme({
             hint: '#000000',
         },
     },
-});
+  });
+  
+
 
 ReactDOM.render(
     <I18nextProvider i18n={i18n}>
         <Router history={history}>
-            <MuiThemeProvider theme={theme}>
-                <App />
-            </MuiThemeProvider>
+        <MuiThemeProvider theme={theme}>
+            <App />
+        </MuiThemeProvider>
         </Router>
+        
     </I18nextProvider>
     , document.getElementById('root'));
 
