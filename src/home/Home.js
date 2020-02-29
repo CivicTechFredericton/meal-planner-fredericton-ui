@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Footer from "../core/footer/Footer";
 
 const temp = ["Dan", "Sam", "Nancy"];
 
@@ -18,6 +18,8 @@ const Home = (props) => {
                 Home
             </div>
             { func(temp)}
+          <Footer>
+          </Footer>
         </>
     )
 }
