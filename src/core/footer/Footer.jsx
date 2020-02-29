@@ -7,22 +7,31 @@ import {makeStyles} from "@material-ui/core/styles";
 
 const useStyles = makeStyles (theme => ({
   footerContainer: {
-    backgroundColor: '#22242b'
+    backgroundColor: '#22242b',
   },
   footerInnerContainer: {
     maxWidth: 1176,
     width: '100%',
     marginRight: 'auto',
     marginLeft: 'auto',
+    marginBottom: 50,
     color: 'white',
     '& a' : {
       color: 'white',
       fontSize: 14,
-      fontFamily: 'Open Sans'
+      fontFamily: 'Open Sans',
+      padding: 0,
+      lineHeight: 1.5
     },
     '& h2': {
       fontSize: 18,
-      fontFamily: 'Open Sans'
+      fontWeight: 700,
+      fontFamily: 'Open Sans',
+    },
+    footerText: {
+      fontStyle: 'italic',
+      marginBottom: 40,
+      color: 'white'
     }
   },
 }));
