@@ -1,5 +1,6 @@
 import React from 'react';
 import Footer from "../core/footer/Footer";
+import { makeStyles } from '@material-ui/core/styles';
 
 const temp = ["Dan", "Sam", "Nancy"];
 
@@ -10,7 +11,7 @@ const func = (array) => {
         )
     })
 }
-import { makeStyles } from '@material-ui/core/styles';
+
 const useStyles = makeStyles(theme => ({
     banner:{
         position: 'absolute',
