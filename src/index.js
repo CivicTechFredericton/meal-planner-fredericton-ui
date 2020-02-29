@@ -11,23 +11,23 @@ import { I18nextProvider } from 'react-i18next';
 const theme = createMuiTheme({
     palette: {
         primary: {
-            light: '#63ccff',
-            main: '#039be5',
-            dark: '#006db3',
+            light: '#4a4c54',
+            main: '#22242b',
+            dark: '#000000',
             contrastText: '#ffffff',
         },
         secondary: {
-            light: '#ffb04c',
-            main: '#f57f17',
-            dark: '#bc5100',
-            contrastText: '#000000',
+            light: '#abf3a2',
+            main: '#7ac073',
+            dark: '#4a8f46',
+            contrastText: '#ffffff',
         },
         typography: {
             useNextVariants: true,
         },
         text: {
-            primary: '#0175ad',
-            secondary: '#039be5',
+            primary: '#ffffff',
+            secondary: '#000000',
             disabled: '#000000',
             hint: '#000000',
         },
