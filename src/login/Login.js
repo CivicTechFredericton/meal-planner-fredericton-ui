@@ -13,7 +13,7 @@ const Explanation = (props) => {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </p>
     </Typography>
   );
@@ -67,8 +67,8 @@ const LoginForm = (props) => {
     <Box  component={Paper} elevation={12} square
       position="absolute"
       left={600}
-      top={50}
-      m={10}
+      top={15}
+      m={12}
     >
       <form className={classes.form} noValidate>
         <TextField
