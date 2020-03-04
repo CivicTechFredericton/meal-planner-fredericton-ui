@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Login from "../login/Login"
 import Home from "../home/Home";
 import Header from '../core/Header';
+import Footer from "../core/footer/Footer"
 
 
 const App = (props) => {
@@ -29,6 +30,7 @@ const App = (props) => {
     
 
       </Switch>
+      <Footer/>
       
     </>
   );
