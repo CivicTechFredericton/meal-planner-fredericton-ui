@@ -69,6 +69,7 @@ const LoginForm = (props) => {
       left={600}
       top={15}
       m={12}
+      // bgcolor="primary.main"
     >
       <form className={classes.form} noValidate>
         <TextField
