@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
         justifyContent: "flex-end"
       },
       appBar: {
-        position: 'relative',
+     //   position: 'relative',
         boxShadow: 'none',
         backgroundColor: 'rgba(0 ,0 ,0 ,0.7)',
         paddingTop: 0,
@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
         color: '#ffffff',
       },
       productLogo: {
-        display: 'inline-block',
+       // display: 'inline-block',
         marginLeft: 25,
         paddingLeft: 24,
         [theme.breakpoints.up('md')]: {
@@ -178,7 +178,7 @@ const Header = (props) => {
     };
 
     return (<div className={styles.root} ><AppBar position="absolute" className={styles.appBar}>
-        <Toolbar spacing={0}>
+        <Toolbar elevation={0} spacing={0}>
           <Grid container spacing={24} alignItems="baseline">
               <Grid item xs={12} className={styles.flex}>
                   <div className={styles.inline}>

@@ -1,36 +1,26 @@
 import React from 'react';
 import Footer from "../core/footer/Footer";
-
-const temp = ["Dan", "Sam", "Nancy"];
-
-const func = (array) => {
-    return array.map( result => {
-        return (
-             <span>{ result + " "}</span>
-        )
-    })
-}
 import { makeStyles } from '@material-ui/core/styles';
+//import banner from '../assets/banner.jpg';
+import Login from '../login/Login';
+
+
+
 const useStyles = makeStyles(theme => ({
     banner:{
-        position: 'absolute',
+      //  position: 'absolute',
         top: '0',
         width:'100%'
     }
 }));
 
-const banner = require('../assets/banner.jpg');
+//const banner = require('../assets/banner.jpg');
 
 const Home = (props) => {
     const classes = useStyles(props);
     return (
         <>
-            <div>
-            <img src={banner} alt="" className={classes.banner} />
-            </div>
-            { func(temp)}
-          <Footer>
-          </Footer>
+           <Login/>
         </>
     )
 }
