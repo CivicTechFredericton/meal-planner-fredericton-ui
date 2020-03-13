@@ -2,7 +2,7 @@ import React from 'react';
 import Footer from "../core/footer/Footer";
 import { makeStyles } from '@material-ui/core/styles';
 //import banner from '../assets/banner.jpg';
-import ImageCarousel from '../login/ImageCarousel';
+import Login from '../login/Login';
 
 
 
@@ -20,7 +20,7 @@ const Home = (props) => {
     const classes = useStyles(props);
     return (
         <>
-           <ImageCarousel/>
+           <Login/>
         </>
     )
 }

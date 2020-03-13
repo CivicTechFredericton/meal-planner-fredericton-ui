@@ -3,6 +3,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import Box from '@material-ui/core/Box';
 import login1 from "./login1.jpg";
 import login2 from "./login2.jpg";
 import login3 from "./login3.jpg";
@@ -16,7 +17,7 @@ const carouselImages = [
 const useStyles = makeStyles(theme => ({
   root: {
     // maxWidth: 768,
-    // flexGrow: 0,
+    flexGrow: 1,
   },
   header: {
     display: 'flex',
@@ -54,7 +55,7 @@ const ImageCarousel = (props) =>{
   };
 
   return (
-    <div className={classes.root}>
+    <Box>
       <AutoPlaySwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
@@ -76,7 +77,7 @@ const ImageCarousel = (props) =>{
         activeStep={activeStep}
         className={classes.dots}
       />
-    </div>
+    </Box>
   );
 }
 
