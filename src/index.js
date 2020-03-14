@@ -7,6 +7,8 @@ import { Router } from 'react-router-dom';
 import history from './history';
 import i18n from './utils/i18n';
 import { I18nextProvider } from 'react-i18next';
+import { StateProvider } from './core/store/state';
+import { reducer } from './core/store/reducer';
 
 const theme = createMuiTheme({
     palette: {
@@ -24,7 +26,7 @@ const theme = createMuiTheme({
         },
         typography: {
             useNextVariants: true,
-            fontFamily: 'Open Sans',           
+            fontFamily: 'Open Sans',
         },
         text: {
             primary: '#ffffff',
@@ -33,19 +35,23 @@ const theme = createMuiTheme({
             hint: '#000000',
         },
     },
-  });
-  
+});
+
+const initialState = {
+    appState: { State: "Loading" }
+};
 
 
 ReactDOM.render(
-    <I18nextProvider i18n={i18n}>
-        <Router history={history}>
-        <MuiThemeProvider theme={theme}>
-            <App />
-        </MuiThemeProvider>
-        </Router>
-        
-    </I18nextProvider>
+    <StateProvider initialState={initialState} reducer={reducer}>
+        <I18nextProvider i18n={i18n}>
+            <Router history={history}>
+                <MuiThemeProvider theme={theme}>
+                    <App />
+                </MuiThemeProvider>
+            </Router>
+        </I18nextProvider>
+    </StateProvider>
     , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

@@ -26,7 +26,7 @@ class FormTextField extends PureComponent {
         const { id, label, name, isSubmitting,
             values, setFieldValue, errors,
             fullWidth, margin, color, type,
-            variant, autoComplete, autoFocus
+            variant, autoComplete, autoFocus 
         } = this.props;
 
         const fieldID = id || name;
@@ -49,7 +49,7 @@ class FormTextField extends PureComponent {
                     fullWidth={fullWidth}
                     id={fieldID}
                     className={classes.root}
-                    margiin={margin}
+                    margin={margin}
                     color={color}
                     type={type}
                     component={TextField}

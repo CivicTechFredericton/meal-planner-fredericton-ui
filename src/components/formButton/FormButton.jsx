@@ -6,7 +6,9 @@ import PropTypes from "prop-types";
 
 const FormButton = (props) => {
 
-    const { onClickValues, onClick, label, values, setFieldValue, isSubmitting, ...buttonProps } = props;
+    const { onClickValues, onClick, label, values,
+        setFieldValue, isSubmitting, errors,
+        ...buttonProps } = props;
 
     const onClickFormValues = () => {
         if (onClickValues) {
@@ -42,6 +44,10 @@ FormButton.propTypes = {
     type: PropTypes.string,
     color: PropTypes.string,
     variant: PropTypes.string,
+    errors: PropTypes.object,
+    isSubmitting: PropTypes.bool,
+    setFieldValue: PropTypes.func,
+    values: PropTypes.object
 };
 
 export default FormButton;
