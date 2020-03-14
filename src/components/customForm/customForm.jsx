@@ -1,38 +1,67 @@
 import React from 'react';
-import Box from '@material-ui/core/Box';
 import { Formik, Form } from 'formik';
+import { PropTypes } from 'prop-types';
+
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 
 const CustomForm = (props) => {
 
-    const { validate, initialValues, onSubmit, children } = props
+    const { onValidate, initialValues, onSubmit, children, title, enableReinitialize } = props
 
 
     return (
         <Box>
             <Formik
+                enableReinitialize={enableReinitialize}
                 initialValues={initialValues}
-                validate={values => validate(values)}
+                validate={values => onValidate(values)}
                 onSubmit={(values, { setSubmitting }) => {
-                    setTimeout(() => {
-                        onSubmit(values);
-                        alert(JSON.stringify(values, null, 2));
-                        setSubmitting(false);
-                    }, 400);
+                    setSubmitting(true);
+                    onSubmit(values);
+                    setSubmitting(false);
                 }}
             >
-                {({ isSubmitting, values }) => (
-                    <Form>
-                        <Box>
-                            {children}
-                        </Box>
-                        <button type="submit" disabled={isSubmitting}>
-                            Submit
-                        </button>
-                    </Form>
+                {({ isSubmitting, values, setFieldValue, errors }) => (
+
+                    <Box>
+                        {title &&
+                            <Typography component="h5" variant="h5">
+                                {title}
+                            </Typography>
+                        }
+                        <Form>
+                            <Box>
+                                {
+                                    React.Children.map(children, child => {
+                                        return React.cloneElement(child, {
+                                            isSubmitting,
+                                            values,
+                                            setFieldValue,
+                                            errors
+                                        })
+                                    })
+                                }
+                            </Box>
+                        </Form>
+                    </Box>
                 )}
             </Formik>
         </Box>
-    )
-}
+    );
+};
+
+CustomForm.defaultprops = {
+    enableReinitialize: true
+};
+
+CustomForm.propTypes = {
+    title: PropTypes.string,
+    children: PropTypes.any.isRequired,
+    onValidate: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+    initialValues: PropTypes.object.isRequired,
+    enableReinitialize: PropTypes.bool
+};
 
 export default CustomForm;
